@@ -39,10 +39,10 @@ class UserService {
     /**
      * Methode pour mettre a jour un utilisateur avec id
      * 
-     * @param {string} id 
+     * @param {Object} user 
      */
-    updateById(id){
-        return userRepository.updateById(id)
+    updateById(user){
+        return userRepository.updateById(user)
     }
 }
 

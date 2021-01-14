@@ -39,10 +39,10 @@ class UserRepository {
     /**
      * Methode pour mettre a jour un utilisateur avec id
      * 
-     * @param {string} id 
+     * @param {Object} user 
      */
-    updateById(id){
-        return userModel.findByIdAndUpdate(id).exec();
+    updateById(user){
+        return userModel.findByIdAndUpdate(user.id, { "userName": user.userName}).exec();
     }
 
 }

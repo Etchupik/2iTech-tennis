@@ -10,7 +10,8 @@ mongoose.connect('mongodb://localhost:27017/cours',{
     authSource: "admin", 
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 
 //connexion a mongo

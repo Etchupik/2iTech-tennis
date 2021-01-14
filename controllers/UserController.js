@@ -59,8 +59,11 @@ class UserController{
      * @param {any} res 
      */
     updateById(req, res){
-        const id = req.params.id;
-        userService.updateById(id).then((data) => {
+        const user = {
+            "id": req.params.id,
+            "userName": req.body.userName
+        }
+        userService.updateById(user).then((data) => {
             res.json(data)
         })
     }
