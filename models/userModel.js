@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const gameSchema = new mongoose.Schema({
-	userScore: Number,
-    userName: String,
+	userName: String
 });
 export const userModel = mongoose.model('Game', gameSchema);
