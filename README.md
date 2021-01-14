@@ -7,3 +7,5 @@ Grenier Julien
 Mathon Thibaut
 Aidara Mouhamadou
 Belaid Abdelhak
+
+lancer l'app par app.js

@@ -1,1 +1,16 @@
-[{"name":"nadal","lastname":"ralph"},{"id":null,"name":"djoko","lastname":"djo"},{"id":1,"name":"djoko","lastname":"djo"}]
+[
+    {
+        "name": "nadal",
+        "lastname": "ralph"
+    },
+    {
+        "id": null,
+        "name": "djoko",
+        "lastname": "djo"
+    },
+    {
+        "id": 1,
+        "name": "djoko",
+        "lastname": "djo"
+    }
+]
