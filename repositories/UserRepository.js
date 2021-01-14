@@ -1,10 +1,4 @@
-import mongoose from 'mongoose';
-
-const userSchema = new mongoose.Schema({
-    username: String
-});
-
-const userModel = mongoose.model('users', userSchema);
+import userModel from '../models/UserModel';
 
 class UserRepository {
 
