@@ -1,4 +1,4 @@
-import { userRepository } from "../repositories/UserRepository";
+import { userRepository } from "../repositories/UserRepository.js";
 
 class UserService {
 

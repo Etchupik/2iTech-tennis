@@ -1,4 +1,4 @@
-import { userController } from "./controllers/UserController";
+import { userController } from "./controllers/UserController.js";
 
 //création manuelle d'un routeur
 //nous plaçons toutes nos routes dans une fonction

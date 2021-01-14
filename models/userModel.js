@@ -1,11 +1,7 @@
-import mongoose from 'mongoose' 
+import mongoose from 'mongoose';
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-
-var gameSchema = new Schema({
+const gameSchema = new mongoose.Schema({
 	userScore: Number,
     userName: String,
 });
-
-module.exports = mongoose.model('Game', gameSchema);
+export const userModel = mongoose.model('Game', gameSchema);
