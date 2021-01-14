@@ -7,4 +7,5 @@ export const setRouting = (server) => {
     server.post('/users', userController.save)
     server.get('/users/:id', userController.findById)
     server.delete('/users/:id', userController.deleteById)
+    server.put('/users/:id',userController.updateById)
 }
