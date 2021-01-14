@@ -4,6 +4,9 @@ class UserController{
 
     /**
      * Methode pour recuperer tous les utilisateurs
+     * 
+     * @param {any} req 
+     * @param {any} res 
      */
     findAll(req, res) {
         const data = userService.findAll().then((data) => {
@@ -14,8 +17,8 @@ class UserController{
     /**
      * Methode pour recuperer un utilisateur avec id
      * 
-     * @param req 
-     * @param res 
+     * @param {any} req 
+     * @param {any} res 
      */
     findById(req, res) {
         const id = req.params.id;
@@ -27,8 +30,8 @@ class UserController{
     /**
      * Methode pour sauvegarder un nouvel utilisateur
      * 
-     * @param req 
-     * @param res 
+     * @param {any} req 
+     * @param {any} res 
      */
     save(req, res) {
         userService.save(req.body).then(data =>{
@@ -39,12 +42,25 @@ class UserController{
     /**
      * Methode qui supprime un utilisateur avec id
      * 
-     * @param req 
-     * @param res 
+     * @param {any} req 
+     * @param {any} res 
      */
     deleteById(req, res){
         const id = req.params.id;
         userService.deleteById(id).then((data) => {
+            res.json(data)
+        })
+    }
+
+    /**
+     * Methode pour mettre a jour un utilisateur avec id
+     * 
+     * @param {any} req 
+     * @param {any} res 
+     */
+    updateById(req, res){
+        const id = req.params.id;
+        userService.updateById(id).then((data) => {
             res.json(data)
         })
     }
