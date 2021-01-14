@@ -42,7 +42,8 @@ class UserRepository {
      * @param {Object} user 
      */
     updateById(user){
-        return userModel.findByIdAndUpdate(user.id, { "userName": user.userName}).exec();
+        userModel.findByIdAndUpdate(user.id, { "userName": user.userName}).exec();
+        return userModel.findById(user.id).exec()
     }
 
 }
