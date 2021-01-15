@@ -1,8 +1,10 @@
 import mongoose from 'mongoose';
 
 const playerSchema = new mongoose.Schema({
-	name: String,
-	points: Number,
+	Name: String,
+	Points: Number,
+	Jeu: Number,
+	Set: Number
 });
 
 export const playerModel = mongoose.model('Player', playerSchema);
