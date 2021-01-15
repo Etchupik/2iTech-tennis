@@ -1,25 +1,56 @@
+import _ from "lodash";
+
 class GameUtils {
     
-    formatGameToSave(game){
-        const p1Name = this.fieldEmpty(game.player1.name) ? "Player 1" : game.player1.name;
-        const p2Name = this.fieldEmpty(game.player2.name) ? "Player 2" : game.player2.name;
-        const p1Jeu = this.fieldEmpty(game.player1.jeu) ? 0 : game.player1.jeu;
-        const p2Jeu = this.fieldEmpty(game.player2.jeu) ? 0 : game.player2.jeu;
-        const p1Set = this.fieldEmpty(game.player1.set) ? 0 : game.player1.set;
-        const p2Set = this.fieldEmpty(game.player2.set) ? 0 : game.player2.set;
+    formatGame(gameToFormat){
 
+        let game = this.fillGameValue(gameToFormat);
+        
         const gameToSave = {
-            "player1Name": p1Name,
-            "player2Name": p2Name,
-            "player1Jeu": p1Jeu,
-            "player2Jeu": p2Jeu,
-            "player1Set": p1Set,
-            "player2Set": p2Set
+            "player1Name": game.player1.name,
+            "player2Name": game.player2.name,
+            "player1Jeu": game.player1Jeu,
+            "player2Jeu": game.player2Jeu,
+            "player1Set": game.player1Set,
+            "player2Set": game.player2Set
         }
 
         return gameToSave;
     }
 
+    fillGameValue(game){
+        const fieldsNames = Object.keys(game);
+
+        _.forEach(fieldsNames, (xx) => {
+            let field = game[xx];
+
+            if(typeof(field) == "object"){
+                _.forEach(field, (xx) => {
+                    field = this.fillEmptyValue(xx)
+                })
+            }
+            else{
+                game[field] = this.fillEmptyValue(field);
+            }
+        })
+
+        return game;
+    }
+
+    fillEmptyValue(field){
+        const type = typeof(field);
+
+        if(field == null)
+            field = "";
+        if(type == "string" && this.fieldEmpty(field))
+            field = "";
+        if(type == "Number" && this.fieldEmpty(field))
+            field = 0;
+
+        return field;
+    }
+
+    
     fieldEmpty(field){
         let isEmpty = false;
 

@@ -11,7 +11,7 @@ class GameService {
         const player2 = new Player(request.body.player2Name);
         const game = new Game(player1, player2);
         
-        const gameToSave = gameUtils.formatGameToSave(game);
+        const gameToSave = gameUtils.formatGame(game);
 
         return this.save(gameToSave)
     }
