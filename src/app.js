@@ -55,12 +55,13 @@ class App{
 
   logRequest(){
     this.server.use((req, res, next) => {
+      let date = new Date();
+      let getHourMin = '\n' + date.getHours() + ':' + date.getMinutes() + ' '
       const requestToLog = JSON.stringify({
         "method": req.method,
         "body": req.body
       })
-      fs.appendFile(this.dataBasePath, requestToLog, (() => {}));
-
+      fs.appendFile(this.dataBasePath, getHourMin + requestToLog, (() => {}));
       next();
     })
   }
