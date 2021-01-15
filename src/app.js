@@ -59,7 +59,6 @@ class App{
         "method": req.method,
         "body": req.body
       })
-      console.log(requestToLog);
       fs.appendFile(this.dataBasePath, requestToLog, (() => {}));
 
       next();

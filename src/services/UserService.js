@@ -18,11 +18,10 @@ class UserService {
         return userRepository.deleteById(id)
     }
 
-    updateById(user){
-        user = {
-            "id": user.params.id,
-            "userName": user.body.userName,
-            "userPoints": user.body.userPoints
+    updateById(requete){
+        const user = {
+            "id": requete.params.id,
+            "body": requete.body
         }
         return userRepository.updateById(user)
     }

@@ -21,9 +21,7 @@ class UserRepository {
     updateById(user){
         return userModel.findByIdAndUpdate(
             user.id, 
-            { "userName": user.userName,
-              "userPoints": user.userPoints
-            }, 
+            user.body,
             userModel.findById(user.id).exec()).exec();
     }
 
