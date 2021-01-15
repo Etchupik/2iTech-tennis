@@ -1,11 +1,18 @@
-import { userController } from "./controllers/UserController.js";
+import { gameController } from "./controllers/GameController.js";
+import { playerController } from "./controllers/PlayerController.js";
 
 //création manuelle d'un routeur
 //nous plaçons toutes nos routes dans une fonction
 export const setRouting = (server) => {
-    server.get('/users', userController.findAll);
-    server.post('/users', userController.save)
-    server.get('/users/:id', userController.findById)
-    server.delete('/users/:id', userController.deleteById)
-    server.put('/users/:id',userController.updateById)
+    server.get('/players', playerController.findAll);
+    server.post('/players', playerController.save)
+    server.get('/players/:id', playerController.findById)
+    server.delete('/players/:id', playerController.deleteById)
+    server.put('/players/:id', playerController.updateById)
+
+    server.get('/game', gameController.findAll);
+    server.post('/game', gameController.save)
+    server.get('/game/:id', gameController.findById)
+    server.delete('/game/:id', gameController.deleteById)
+    server.put('/game/:id', gameController.updateById)
 }
