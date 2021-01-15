@@ -31,7 +31,7 @@ class App{
     };
 
     this.dataBase = mongoose.connection;
-    this.dataBasePath = "./assets/dataBase.json";
+    this.dataBasePath = "./assets/dataBase.txt";
   }
 
   main(){
@@ -56,12 +56,8 @@ class App{
   logRequest(){
     this.server.use((req, res, next) => {
       let date = new Date();
-      let getHourMin = '\n' + date.getHours() + ':' + date.getMinutes() + ' '
-      const requestToLog = JSON.stringify({
-        "method": req.method,
-        "body": req.body
-      })
-      fs.appendFile(this.dataBasePath, getHourMin + requestToLog, (() => {}));
+      let logString = `${date.getHours()}:${date.getMinutes()} - ${req.method} - ${JSON.stringify(req.body)} \n`;
+      fs.appendFile(this.dataBasePath, logString, (() => {}));
       next();
     })
   }
