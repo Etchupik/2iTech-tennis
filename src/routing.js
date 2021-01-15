@@ -16,5 +16,5 @@ export const setRouting = (server) => {
     server.delete('/game/:id', gameController.deleteById)
     server.put('/game/:id', gameController.updateById)
 
-    server.get('/newGame', gameController.newGame);
+    server.post('/newGame', gameController.newGame);
 }
