@@ -31,7 +31,7 @@ class App{
     };
 
     this.dataBase = mongoose.connection;
-    this.dataBasePath = "./assets/dataBase.txt";
+    this.dataBasePath = "./src/assets/dataBase.txt";
   }
 
   main(){
