@@ -29,11 +29,7 @@ class UserController{
     }
 
     updateById(req, res){
-        const user = {
-            "id": req.params.id,
-            "userName": req.body.userName
-        }
-        userService.updateById(user).then((data) => {
+        userService.updateById(req).then((data) => {
             res.json(data)
         })
     }

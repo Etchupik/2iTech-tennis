@@ -19,6 +19,11 @@ class UserService {
     }
 
     updateById(user){
+        user = {
+            "id": user.params.id,
+            "userName": user.body.userName,
+            "userPoints": user.body.userPoints
+        }
         return userRepository.updateById(user)
     }
 }

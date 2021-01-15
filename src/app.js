@@ -31,7 +31,7 @@ class App{
     };
 
     this.dataBase = mongoose.connection;
-    this.dataBasePath = "../assets/dataBase.json";
+    this.dataBasePath = "./assets/dataBase.json";
   }
 
   main(){
@@ -57,9 +57,9 @@ class App{
     this.server.use((req, res, next) => {
       const requestToLog = JSON.stringify({
         "method": req.method,
-        "body": req.body.userName
+        "body": req.body
       })
-      
+      console.log(requestToLog);
       fs.appendFile(this.dataBasePath, requestToLog, (() => {}));
 
       next();
