@@ -15,4 +15,6 @@ export const setRouting = (server) => {
     server.get('/game/:id', gameController.findById)
     server.delete('/game/:id', gameController.deleteById)
     server.put('/game/:id', gameController.updateById)
+
+    server.get('/newGame', gameController.newGame);
 }

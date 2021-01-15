@@ -2,6 +2,12 @@ import { gameService } from "../services/GameService.js";
 
 class GameController{
 
+    newGame(req, res){
+        gameService.newGame(req).then((data) => {
+            res.json(data);
+        });
+    }
+
     findAll(req, res) {
         gameService.findAll().then((data) => {
             res.json(data)
