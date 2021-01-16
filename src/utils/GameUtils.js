@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 class GameUtils {
     
     formatGame(gameToFormat){
@@ -19,35 +17,44 @@ class GameUtils {
     }
 
     fillGameValue(game){
-        const fieldsNames = Object.keys(game);
+        const keys = Object.keys(game)
+        const values = Object.values(game);
 
-        _.forEach(fieldsNames, (xx) => {
-            let field = game[xx];
-
-            if(typeof(field) == "object"){
-                _.forEach(field, (xx) => {
-                    field = this.fillEmptyValue(xx)
-                })
+        for(let i = 0; i < keys.length; i++){
+            if(typeof(values[i]) == "object"){
+                game[keys[i]] = this.fillObject(values[i])
             }
             else{
-                game[field] = this.fillEmptyValue(field);
+                game[keys[i]] = this.fillEmptyValue(values[i])
             }
-        })
+        }
 
         return game;
     }
 
-    fillEmptyValue(field){
-        const type = typeof(field);
+    fillObject(object){
+        const keys = Object.keys(object);
+        const values = Object.values(object);
 
-        if(field == null)
-            field = "";
-        if(type == "string" && this.fieldEmpty(field))
-            field = "";
-        if(type == "Number" && this.fieldEmpty(field))
-            field = 0;
+        for(let i = 0; i < keys.length; i++){
+            let key = keys[i];
+            let value = values[i];
+            let type = typeof(object[key]);
 
-        return field;
+            object[key] = this.fillEmptyValue(type, value);
+        }
+
+        return object;
+    }
+
+    fillEmptyValue(type, value){
+
+        if(type == "string" && this.fieldEmpty(value))
+            value = "";
+        else if(type == "Number" && this.fieldEmpty(value))
+            value = 0;
+
+        return value;
     }
 
     
