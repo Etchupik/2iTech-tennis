@@ -1,7 +1,7 @@
-export class Game{
+export class GameToSave {
 
-    _player1;
-    _player2;
+    _player1Name;
+    _player2Name;
     _player1Points;
     _player2Points;
     _player1Jeu;
@@ -11,30 +11,30 @@ export class Game{
     _winner;
     
 
-    constructor(player1, player2){
-        this.player1 = player1;
-        this.player2 = player2;
-        this.player1Points = 0;
-        this.player2Points = 0;
-        this.player1Jeu = 0;
-        this.player2Jeu = 0;
-        this.player1Set = 0;
-        this.player2Set = 0;
-	    this.winner = "";
+    constructor(game){
+        this.player1Name = game.player1.name,
+        this.player2Name = game.player2.name,
+        this.player1Points = game.player1Points,
+        this.player2Points = game.player2Points,
+        this.player1Jeu = game.player1Jeu,
+        this.player2Jeu = game.player2Jeu,
+        this.player1Set = game.player1Set,
+        this.player2Set = game.player2Set,
+        this.winner = game.winner 
     }
 
-    get player1() {
-        return this._player1;
+    get player1Name() {
+        return this._player1Name;
     }
-    set player1(value) {
-        this._player1 = value;
+    set player1Name(value) {
+        this._player1Name = value;
     }
 
-    get player2() {
-        return this._player2;
+    get player2Name() {
+        return this._player2Name;
     }
-    set player2(value) {
-        this._player2 = value;
+    set player2Name(value) {
+        this._player2Name = value;
     }
 
     get player1Points() {
